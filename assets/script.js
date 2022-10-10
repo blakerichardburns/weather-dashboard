@@ -1,10 +1,47 @@
 var weatherApiKey = "558c0603a2078d8a70f4729133b3fa07";
 var searchButton = document.querySelector("#search-button");
+var cityNameDisplay = document.querySelector("#city-name");
 
+var todayDate = document.querySelector("#todays-date");
+var future1Date = document.querySelector("#future-date-1");
+var future2Date = document.querySelector("#future-date-2");
+var future3Date = document.querySelector("#future-date-3");
+var future4Date = document.querySelector("#future-date-4");
+var future5Date = document.querySelector("#future-date-5");
+
+var todayTempDislay = document.querySelector("#current-temperature");
+var future1TempTempDislay = document.querySelector("#future-temp-1");
+var future2TempTempDislay = document.querySelector("#future-temp-2");
+var future3TempTempDislay = document.querySelector("#future-temp-3");
+var future4TempTempDislay = document.querySelector("#future-temp-4");
+var future5TempTempDislay = document.querySelector("#future-temp-5");
+
+var todayHumidDisplay = document.querySelector("#current-humidity");
+var future1HumidDisplay = document.querySelector("#future-humidity-1");
+var future2HumidDisplay = document.querySelector("#future-humidity-2");
+var future3HumidDisplay = document.querySelector("#future-humidity-3");
+var future4HumidDisplay = document.querySelector("#future-humidity-4");
+var future5HumidDisplay = document.querySelector("#future-humidity-5");
+
+var todayWindDisplay = document.querySelector("#current-wind-speed");
+var future1WindDisplay = document.querySelector("#future-wind-1");
+var future2WindDisplay = document.querySelector("#future-wind-2");
+var future3WindDisplay = document.querySelector("#future-wind-3");
+var future4WindDisplay = document.querySelector("#future-wind-4");
+var future5WindDisplay = document.querySelector("#future-wind-5");
+
+var todayIcon = document.querySelector("#current-weather-icon");
+var future1Icon = document.querySelector("#future-icon-1");
+var future2Icon = document.querySelector("#future-icon-2");
+var future3Icon = document.querySelector("#future-icon-3");
+var future4Icon = document.querySelector("#future-icon-4");
+var future5Icon = document.querySelector("#future-icon-5");
 
 searchButton.addEventListener("click", function(event) {
     event.preventDefault();
     var searchInput = document.querySelector("#search-input").value;
+
+    localStorage.setItem("city", searchInput);
 
     cityCoordinates();    
     
@@ -23,7 +60,10 @@ searchButton.addEventListener("click", function(event) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
+            console.log(data);
+
+            var cityName = data.city.name;
+
             var todayArray = data.list[0];
             var todayTemp = todayArray.main.temp;
             var todayHumid = todayArray.main.humidity;
@@ -52,7 +92,45 @@ searchButton.addEventListener("click", function(event) {
             var futureFiveArray = data.list[5];
             var futureFiveTemp = futureFiveArray.main.temp;
             var futureFiveHumid = futureFiveArray.main.humidity;
-            var futureFiveWind = futureFiveArray.wind.speed;         
+            var futureFiveWind = futureFiveArray.wind.speed;
+            
+            cityNameDisplay.textContent = cityName
+
+            // todayDate
+            // future1Date
+            // future2Date
+            // future3Date
+            // future4Date
+            // future5Date
+            
+            // todayIcon
+            // future1Icon
+            // future2Icon
+            // future3Icon
+            // future4Icon
+            // future5Icon
+
+            todayTempDislay.textContent = "Today's Temp: " + todayTemp
+            future1TempTempDislay.textContent = "Temp: " + futureOneTemp
+            future2TempTempDislay.textContent = "Temp: " + futureTwoTemp
+            future3TempTempDislay.textContent = "Temp: " + futureThreeTemp
+            future4TempTempDislay.textContent = "Temp: " + futureFourTemp
+            future5TempTempDislay.textContent = "Temp: " + futureFiveTemp
+
+            todayHumidDisplay.textContent = "Today's Humidity: " + todayHumid
+            future1HumidDisplay.textContent = "Humidity: " + futureOneHumid
+            future2HumidDisplay .textContent = "Humidity: " + futureTwoHumid
+            future3HumidDisplay.textContent = "Humidity: " + futureThreeHumid
+            future4HumidDisplay.textContent = "Humidity: " + futureFourHumid
+            future5HumidDisplay.textContent = "Humidity: " + futureFiveHumid
+
+            todayWindDisplay.textContent = "Today's Wind Speed: " + todayWind
+            future1WindDisplay.textContent = "Wind Speed: " + futureOneWind
+            future2WindDisplay.textContent = "Wind Speed: " + futureTwoWind
+            future3WindDisplay.textContent = "Wind Speed: " + futureThreeWind
+            future4WindDisplay.textContent = "Wind Speed: " + futureFourWind
+            future5WindDisplay.textContent = "Wind Speed: " + futureFiveWind
+
         })
     })}
 });
