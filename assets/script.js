@@ -1,12 +1,16 @@
 var weatherApiKey = "558c0603a2078d8a70f4729133b3fa07";
-var searchInput = "";
-var cityName = "";
-var searchHistory = [];
+var searchButton = document.querySelector("#search-button");
 
-function cityCoordinates() {
-    cityName = "Indianapolis";
-    fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&appid=" + weatherApiKey)
-    .then(function (response) {
+
+searchButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    var searchInput = document.querySelector("#search-input").value;
+
+    cityCoordinates();    
+    
+    function cityCoordinates() {
+        fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + searchInput + "&appid=" + weatherApiKey)
+        .then(function (response) {
         return response.json();
     })
     .then(function (data) {
@@ -19,11 +23,12 @@ function cityCoordinates() {
             return response.json();
         })
         .then(function (data) {
+            console.log(data)
             var todayArray = data.list[0];
             var todayTemp = todayArray.main.temp;
             var todayHumid = todayArray.main.humidity;
             var todayWind = todayArray.wind.speed;
-
+            
             var futureOneArray = data.list[1];
             var futureOneTemp = futureOneArray.main.temp;
             var futureOneHumid = futureOneArray.main.humidity;
@@ -48,9 +53,6 @@ function cityCoordinates() {
             var futureFiveTemp = futureFiveArray.main.temp;
             var futureFiveHumid = futureFiveArray.main.humidity;
             var futureFiveWind = futureFiveArray.wind.speed;         
-
         })
-    })
-}
-
-cityCoordinates();
+    })}
+});
