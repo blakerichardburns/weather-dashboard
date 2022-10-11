@@ -86,45 +86,38 @@ searchButton.addEventListener("click", function(event) {
             var todayTemp = Math.trunc((todayArray.main.temp - 273.1) * 1.8 + 32);
             var todayHumid = todayArray.main.humidity;
             var todayWind = todayArray.wind.speed;
-            // var todayIconValue = todayArray.weather.main
+            var todayIconValue = todayArray.weather[0].id
             
             var futureOneArray = data.list[1];
             var futureOneTemp = Math.trunc((futureOneArray.main.temp - 273.1) * 1.8 + 32);
             var futureOneHumid = futureOneArray.main.humidity;
             var futureOneWind = futureOneArray.wind.speed;
-            // var futureOneIconValue = futureOneArray.weather.main 
+            var futureOneIconValue = futureOneArray.weather[0].id 
             
             var futureTwoArray = data.list[2];
             var futureTwoTemp = Math.trunc((futureTwoArray.main.temp - 273.1) * 1.8 + 32);
             var futureTwoHumid = futureTwoArray.main.humidity;
             var futureTwoWind = futureTwoArray.wind.speed;
-            // var futureTwoIconValue = futureTwoArray.weather.main 
+            var futureTwoIconValue = futureTwoArray.weather[0].id 
             
             var futureThreeArray = data.list[3];
             var futureThreeTemp = Math.trunc((futureThreeArray.main.temp - 273.1) * 1.8 + 32);
             var futureThreeHumid = futureThreeArray.main.humidity;
             var futureThreeWind = futureThreeArray.wind.speed;
-            // var futureThreeIconValue = futureThreeArray.weather.main 
+            var futureThreeIconValue = futureThreeArray.weather[0].id 
             
             var futureFourArray = data.list[4];
             var futureFourTemp = Math.trunc((futureFourArray.main.temp - 273.1) * 1.8 + 32);
             var futureFourHumid = futureFourArray.main.humidity;
             var futureFourWind = futureFourArray.wind.speed;
-            // var futureFourIconValue = futureFourArray.weather.main 
+            var futureFourIconValue = futureFourArray.weather[0].id 
             
             var futureFiveArray = data.list[5];
             var futureFiveTemp = Math.trunc((futureFiveArray.main.temp - 273.1) * 1.8 + 32);
             var futureFiveHumid = futureFiveArray.main.humidity;
             var futureFiveWind = futureFiveArray.wind.speed;
-            // var futureFiveIconValue = futureFiveArray.weather.main 
+            var futureFiveIconValue = futureFiveArray.weather[0].id
 
-            // console.log(todayIconValue);
-            // console.log(futureOneIconValue);
-            // console.log(futureTwoIconValue);
-            // console.log(futureThreeIconValue);
-            // console.log(futureFourIconValue);
-            // console.log(futureFiveIconValue);
-            
             cityNameDisplay.textContent = cityName
 
             var todayDate = moment().format("dddd, MMMM Do, YYYY");
@@ -161,28 +154,101 @@ searchButton.addEventListener("click", function(event) {
             future4WindDisplay.textContent = "Wind Speed: " + futureFourWind
             future5WindDisplay.textContent = "Wind Speed: " + futureFiveWind
             
-            // if (todayIconValue == "Clear") {
-            //     // display sun as todayIcon
-            // } else if (todayIconValue == "Clouds") {
-            //     // display cloud as todayIcon
-            // } else if (todayIconValue == "Rain") {
-            //     // display rain as todayIcon
-            // } else if (todayIconValue == "Thunderstorm") {
-            //     // display thunderstorm as todayIcon
-            // } else if (todayIconValue == "Drizzle") {
-            //     // display drizzle as todayIcon
-            // } else if (todayIconValue == "Snow") {
-            //     // display snow as todayIcon
-            // } else {
-            //     // display something as todayIcon
-            // };
-
-         
-            // future1Icon
-            // future2Icon
-            // future3Icon
-            // future4Icon
-            // future5Icon
+            if (todayIconValue == 800) {
+                todayIcon.src="http://openweathermap.org/img/wn/01d@2x.png";
+            } else if (todayIconValue > 800 && todayIconValue < 805) {
+                todayIcon.src="http://openweathermap.org/img/wn/03d@2x.png";
+            } else if (todayIconValue > 499 && todayIconValue < 532) {
+                todayIcon.src="http://openweathermap.org/img/wn/09d@2x.png";
+            } else if (todayIconValue > 199 && todayIconValue < 233) {
+                todayIcon.src="http://openweathermap.org/img/wn/11d@2x.png";
+            } else if (todayIconValue > 299 && todayIconValue < 322) {
+                todayIcon.src="http://openweathermap.org/img/wn/10d@2x.png";
+            } else if (todayIconValue > 599 && todayIconValue < 623) {
+                todayIcon.src="http://openweathermap.org/img/wn/13d@2x.png";
+            } else {
+                todayIcon.src="http://openweathermap.org/img/wn/50d@2x.png";
+            };
+            
+            if (futureOneIconValue == 800) {
+                future1Icon.src="http://openweathermap.org/img/wn/01d@2x.png";
+            } else if (futureOneIconValue > 800 && futureOneIconValue < 805) {
+                future1Icon.src="http://openweathermap.org/img/wn/03d@2x.png";
+            } else if (futureOneIconValue > 499 && futureOneIconValue < 532) {
+                future1Icon.src="http://openweathermap.org/img/wn/09d@2x.png";
+            } else if (futureOneIconValue > 199 && futureOneIconValue < 233) {
+                future1Icon.src="http://openweathermap.org/img/wn/11d@2x.png";
+            } else if (futureOneIconValue > 299 && futureOneIconValue < 322) {
+                future1Icon.src="http://openweathermap.org/img/wn/10d@2x.png";
+            } else if (futureOneIconValue > 599 && futureOneIconValue < 623) {
+                future1Icon.src="http://openweathermap.org/img/wn/13d@2x.png";
+            } else {
+                future1Icon.src="http://openweathermap.org/img/wn/50d@2x.png";
+            };
+            
+            if (futureTwoIconValue == 800) {
+                future2Icon.src="http://openweathermap.org/img/wn/01d@2x.png";
+            } else if (futureTwoIconValue > 800 && futureTwoIconValue < 805) {
+                future2Icon.src="http://openweathermap.org/img/wn/03d@2x.png";
+            } else if (futureTwoIconValue > 499 && futureTwoIconValue < 532) {
+                future2Icon.src="http://openweathermap.org/img/wn/09d@2x.png";
+            } else if (futureTwoIconValue > 199 && futureTwoIconValue < 233) {
+                future2Icon.src="http://openweathermap.org/img/wn/11d@2x.png";
+            } else if (futureTwoIconValue > 299 && futureTwoIconValue < 322) {
+                future2Icon.src="http://openweathermap.org/img/wn/10d@2x.png";
+            } else if (futureTwoIconValue > 599 && futureTwoIconValue < 623) {
+                future2Icon.src="http://openweathermap.org/img/wn/13d@2x.png";
+            } else {
+                future2Icon.src="http://openweathermap.org/img/wn/50d@2x.png";
+            };
+            
+            if (futureThreeIconValue == 800) {
+                future3Icon.src="http://openweathermap.org/img/wn/01d@2x.png";
+            } else if (futureThreeIconValue > 800 && futureThreeIconValue < 805) {
+                future3Icon.src="http://openweathermap.org/img/wn/03d@2x.png";
+            } else if (futureThreeIconValue > 499 && futureThreeIconValue < 532) {
+                future3Icon.src="http://openweathermap.org/img/wn/09d@2x.png";
+            } else if (futureThreeIconValue > 199 && futureThreeIconValue < 233) {
+                future3Icon.src="http://openweathermap.org/img/wn/11d@2x.png";
+            } else if (futureThreeIconValue > 299 && futureThreeIconValue < 322) {
+                future3Icon.src="http://openweathermap.org/img/wn/10d@2x.png";
+            } else if (futureThreeIconValue > 599 && futureThreeIconValue < 623) {
+                future3Icon.src="http://openweathermap.org/img/wn/13d@2x.png";
+            } else {
+                future3Icon.src="http://openweathermap.org/img/wn/50d@2x.png";
+            };
+            
+            if (futureFourIconValue == 800) {
+                future4Icon.src="http://openweathermap.org/img/wn/01d@2x.png";
+            } else if (futureFourIconValue > 800 && futureFourIconValue < 805) {
+                future4Icon.src="http://openweathermap.org/img/wn/03d@2x.png";
+            } else if (futureFourIconValue > 499 && futureFourIconValue < 532) {
+                future4Icon.src="http://openweathermap.org/img/wn/09d@2x.png";
+            } else if (futureFourIconValue > 199 && futureFourIconValue < 233) {
+                future4Icon.src="http://openweathermap.org/img/wn/11d@2x.png";
+            } else if (futureFourIconValue > 299 && futureFourIconValue < 322) {
+                future4Icon.src="http://openweathermap.org/img/wn/10d@2x.png";
+            } else if (futureFourIconValue > 599 && futureFourIconValue < 623) {
+                future4Icon.src="http://openweathermap.org/img/wn/13d@2x.png";
+            } else {
+                future4Icon.src="http://openweathermap.org/img/wn/50d@2x.png";
+            };
+            
+            if (futureFiveIconValue == 800) {
+                future5Icon.src="http://openweathermap.org/img/wn/01d@2x.png";
+            } else if (futureFiveIconValue > 800 && futureFiveIconValue < 805) {
+                future5Icon.src="http://openweathermap.org/img/wn/03d@2x.png";
+            } else if (futureFiveIconValue > 499 && futureFiveIconValue < 532) {
+                future5Icon.src="http://openweathermap.org/img/wn/09d@2x.png";
+            } else if (futureFiveIconValue > 199 && futureFiveIconValue < 233) {
+                future5Icon.src="http://openweathermap.org/img/wn/11d@2x.png";
+            } else if (futureFiveIconValue > 299 && futureFiveIconValue < 322) {
+                future5Icon.src="http://openweathermap.org/img/wn/10d@2x.png";
+            } else if (futureFiveIconValue > 599 && futureFiveIconValue < 623) {
+                future5Icon.src="http://openweathermap.org/img/wn/13d@2x.png";
+            } else {
+                future5Icon.src="http://openweathermap.org/img/wn/50d@2x.png";
+            };
 
         })
     })}
