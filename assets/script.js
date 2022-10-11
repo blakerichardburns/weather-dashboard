@@ -4,12 +4,12 @@ var searchHistoryList = document.querySelector("#search-history");
 var cityNameDisplay = document.querySelector("#city-name");
 
 
-var todayDate = document.querySelector("#todays-date");
-var future1Date = document.querySelector("#future-date-1");
-var future2Date = document.querySelector("#future-date-2");
-var future3Date = document.querySelector("#future-date-3");
-var future4Date = document.querySelector("#future-date-4");
-var future5Date = document.querySelector("#future-date-5");
+var todayDateDisplay = document.querySelector("#todays-date");
+var future1DateDisplay = document.querySelector("#future-date-1");
+var future2DateDisplay = document.querySelector("#future-date-2");
+var future3DateDisplay = document.querySelector("#future-date-3");
+var future4DateDisplay = document.querySelector("#future-date-4");
+var future5DateDisplay = document.querySelector("#future-date-5");
 
 var todayTempDislay = document.querySelector("#current-temperature");
 var future1TempTempDislay = document.querySelector("#future-temp-1");
@@ -115,13 +115,19 @@ searchButton.addEventListener("click", function(event) {
             
             cityNameDisplay.textContent = cityName
 
-            // todayDate
-            // future1Date
-            // future2Date
-            // future3Date
-            // future4Date
-            // future5Date
-            
+            var todayDate = moment().format("dddd, MMMM Do, YYYY");
+            todayDateDisplay.textContent = todayDate;
+            var future1Date = moment().add(1, 'days').format("ddd MM/DD/YY");
+            future1DateDisplay.textContent = future1Date;
+            var future2Date = moment().add(2, 'days').format("ddd MM/DD/YY");
+            future2DateDisplay.textContent = future2Date;
+            var future3Date = moment().add(3, 'days').format("ddd MM/DD/YY");
+            future3DateDisplay.textContent = future3Date;
+            var future4Date = moment().add(4, 'days').format("ddd MM/DD/YY");
+            future4DateDisplay.textContent = future4Date;
+            var future5Date = moment().add(5, 'days').format("ddd MM/DD/YY");
+            future5DateDisplay.textContent = future5Date;
+
             todayTempDislay.textContent = "Today's Temp: " + todayTemp
             future1TempTempDislay.textContent = "Temp: " + futureOneTemp
             future2TempTempDislay.textContent = "Temp: " + futureTwoTemp
@@ -143,21 +149,21 @@ searchButton.addEventListener("click", function(event) {
             future4WindDisplay.textContent = "Wind Speed: " + futureFourWind
             future5WindDisplay.textContent = "Wind Speed: " + futureFiveWind
             
-            if (todayIconValue == "Clear") {
-                // display sun as todayIcon
-            } else if (todayIconValue == "Clouds") {
-                // display cloud as todayIcon
-            } else if (todayIconValue == "Rain") {
-                // display rain as todayIcon
-            } else if (todayIconValue == "Thunderstorm") {
-                // display thunderstorm as todayIcon
-            } else if (todayIconValue == "Drizzle") {
-                // display drizzle as todayIcon
-            } else if (todayIconValue == "Snow") {
-                // display snow as todayIcon
-            } else {
-                // display something as todayIcon
-            };
+            // if (todayIconValue == "Clear") {
+            //     // display sun as todayIcon
+            // } else if (todayIconValue == "Clouds") {
+            //     // display cloud as todayIcon
+            // } else if (todayIconValue == "Rain") {
+            //     // display rain as todayIcon
+            // } else if (todayIconValue == "Thunderstorm") {
+            //     // display thunderstorm as todayIcon
+            // } else if (todayIconValue == "Drizzle") {
+            //     // display drizzle as todayIcon
+            // } else if (todayIconValue == "Snow") {
+            //     // display snow as todayIcon
+            // } else {
+            //     // display something as todayIcon
+            // };
 
          
             // future1Icon
