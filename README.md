@@ -1,11 +1,10 @@
 # weather-dashboard
 # Week 6 Challenge: Server-Side APIs
 
-![Alt text](screenshot.JPG "Screenshot")
-<!-- need to actually add the screenshot file later -->
+![Alt text](./assets/screenshot.JPG "Screenshot")
 
 ## Live Link
-<!-- insert published url -->
+https://blakerichardburns.github.io/weather-dashboard/
 
 ## Repository Link
 https://github.com/blakerichardburns/weather-dashboard
