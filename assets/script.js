@@ -1,5 +1,4 @@
 var weatherApiKey = "558c0603a2078d8a70f4729133b3fa07";
-var searchHistoryDisplay = document.querySelector("#search-history");
 var searchButton = document.querySelector("#search-button");
 var cityNameDisplay = document.querySelector("#city-name");
 
@@ -39,19 +38,22 @@ var future3Icon = document.querySelector("#future-icon-3");
 var future4Icon = document.querySelector("#future-icon-4");
 var future5Icon = document.querySelector("#future-icon-5");
 
-// if (savedSearches.length != "null") {
-//     searchHistory ();
-// }
+var searchHistoryDisplay = document.querySelector("#search-history");
 
-var searchInputArray = [];
-// var savedSearches = JSON.parse(localStorage.getItem("cityList"));
-// function searchHistory () {
-//     for (i = 0; i < savedSearches.length; i++) {
-//     var searchHistoryEl = document.createElement("li");
-//     searchInputArray.push(savedSearches[i]);
-//     searchHistoryEl.textContent = searchInputArray[i];
-//     searchHistoryDisplay.appendChild(searchHistoryEl);
-// }}
+var searchInputArray = JSON.parse(localStorage.getItem("cityList"));
+
+if (searchInputArray === null) {
+    searchInputArray = [];
+}
+
+function searchHistory () {
+    searchHistoryDisplay.innerHTML = "";
+    for (i = 0; i < searchInputArray.length; i++) {
+    var searchHistoryEl = document.createElement("li");
+    searchHistoryEl.textContent = searchInputArray[i];
+    searchHistoryDisplay.appendChild(searchHistoryEl);
+}}
+searchHistory () 
 
 searchButton.addEventListener("click", function(event) {
     event.preventDefault();
@@ -61,6 +63,7 @@ searchButton.addEventListener("click", function(event) {
     searchInputArray.push(searchInput);
     localStorage.setItem("cityList", JSON.stringify(searchInputArray));
 
+    searchHistory () 
     cityCoordinates();    
     
     function cityCoordinates() {
