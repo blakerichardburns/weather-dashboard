@@ -67,7 +67,7 @@ searchButton.addEventListener("click", function(event) {
     cityCoordinates();    
     
     function cityCoordinates() {
-        fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + searchInput + "&appid=" + weatherApiKey)
+        fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + searchInput + "&appid=" + weatherApiKey)
         .then(function (response) {
         return response.json();
     })
